@@ -7,41 +7,41 @@
   <meta name="description" content="The smartest Solana memecoin bot – eats dips, rewards holders, burns supply. Everyone wins.">
   <meta property="og:title" content="$BTD – Buy The Dip">
   <meta property="og:description" content="Buy dips, get rewarded, burn supply – $BTD bot turns fear to gains.">
-  <meta property="og:image" content="images/hero.png">
+  <meta property="og:image" content="images/hero-bg.png">
   <meta name="twitter:card" content="summary_large_image">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <style>
-    body { margin: 0; font-family: 'Montserrat', sans-serif; background: #000; color: #fff; scroll-behavior: smooth; overflow-x: hidden; }
-    nav { background: rgba(0,0,0,0.9); padding: 20px; position: fixed; width: 100%; z-index: 100; backdrop-filter: blur(10px); box-shadow: 0 0 20px #00FF00; }
-    nav a { color: #00FF00; text-decoration: none; margin: 0 15px; font-size: 1em; font-weight: bold; transition: color 0.3s; }
-    nav a:hover { color: #fff; text-shadow: 0 0 15px #00FF00; }
+    body { margin: 0; font-family: 'Montserrat', sans-serif; background: #0a0a0a; color: #e0e0e0; scroll-behavior: smooth; overflow-x: hidden; }
+    nav { background: rgba(10,10,10,0.9); padding: 20px; position: fixed; width: 100%; z-index: 100; backdrop-filter: blur(10px); box-shadow: 0 4px 10px rgba(138,43,226,0.1); }
+    nav a { color: #8a2be2; text-decoration: none; margin: 0 20px; font-weight: bold; transition: 0.3s; }
+    nav a:hover { color: #fff; text-shadow: 0 0 10px #8a2be2; }
     section { padding: 120px 20px; text-align: center; position: relative; }
-    .hero { height: 100vh; background: url('images/hero.png') center/cover no-repeat; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; }
-    .characters { display: flex; gap: 50px; margin: 40px 0; animation: float 6s infinite ease-in-out; }
-    .characters img { width: 250px; border-radius: 50%; box-shadow: 0 0 40px #00FF00; transition: 0.5s; }
-    .characters img:hover { transform: scale(1.1); box-shadow: 0 0 60px #00FF00; }
-    @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0); } }
-    h1 { font-size: 5em; color: #00FF00; text-shadow: 0 0 40px #00FF00; animation: glow 2s infinite alternate; }
-    @keyframes glow { from {text-shadow: 0 0 20px #00FF00;} to {text-shadow: 0 0 60px #00FF00;} }
+    .hero { height: 100vh; background: url('images/hero-bg.png') center/cover no-repeat; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; }
+    .characters { display: flex; gap: 50px; margin: 40px 0; animation: float 8s infinite ease-in-out; }
+    .characters img { width: 250px; border-radius: 20px; box-shadow: 0 0 30px rgba(138,43,226,0.3); transition: 0.5s; }
+    .characters img:hover { transform: scale(1.05); box-shadow: 0 0 50px rgba(138,43,226,0.6); }
+    @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0); } }
+    h1 { font-size: 4.5em; color: #8a2be2; text-shadow: 0 0 20px rgba(138,43,226,0.5); animation: subtleGlow 3s infinite alternate; }
+    @keyframes subtleGlow { from {text-shadow: 0 0 10px rgba(138,43,226,0.3);} to {text-shadow: 0 0 30px rgba(138,43,226,0.6);} }
     p { font-size: 1.3em; max-width: 900px; margin: 30px auto; line-height: 1.8; }
-    .btn { padding: 20px 50px; background: #00FF00; color: #000; font-weight: bold; border-radius: 50px; font-size: 1.8em; transition: 0.5s; box-shadow: 0 0 30px #00FF00; animation: pulse 2s infinite; }
-    .btn:hover { transform: scale(1.1); box-shadow: 0 0 60px #00FF00; }
-    @keyframes pulse { 0% { box-shadow: 0 0 30px #00FF00; } 50% { box-shadow: 0 0 50px #00FF00; } 100% { box-shadow: 0 0 30px #00FF00; } }
-    .chart { max-width: 1200px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 0 40px #00FF00; }
+    .btn { padding: 18px 45px; background: #8a2be2; color: #fff; font-weight: bold; border-radius: 50px; font-size: 1.6em; transition: 0.4s; box-shadow: 0 0 20px rgba(138,43,226,0.4); animation: pulse 2.5s infinite; }
+    .btn:hover { transform: scale(1.08); box-shadow: 0 0 40px rgba(138,43,226,0.8); }
+    @keyframes pulse { 0% { box-shadow: 0 0 20px rgba(138,43,226,0.4); } 50% { box-shadow: 0 0 35px rgba(138,43,226,0.6); } 100% { box-shadow: 0 0 20px rgba(138,43,226,0.4); } }
+    .chart { max-width: 1200px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(138,43,226,0.3); }
     .tokenomics, .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-    .card, .tier { background: rgba(17,17,17,0.8); padding: 40px; border-radius: 20px; box-shadow: 0 0 30px #00FF00; transition: 0.5s; backdrop-filter: blur(10px); }
-    .card:hover, .tier:hover { transform: translateY(-20px) scale(1.1); box-shadow: 0 0 60px #00FF00; }
-    .phase { background: rgba(17,17,17,0.8); padding: 40px; border-radius: 20px; max-width: 800px; margin: 40px auto; box-shadow: 0 0 30px #00FF00; transition: 0.5s; backdrop-filter: blur(10px); }
-    .phase:hover { transform: scale(1.05); }
+    .card, .tier { background: rgba(20,20,20,0.8); padding: 40px; border-radius: 20px; box-shadow: 0 0 20px rgba(138,43,226,0.2); transition: 0.5s; backdrop-filter: blur(10px); border: 1px solid rgba(138,43,226,0.1); }
+    .card:hover, .tier:hover { transform: translateY(-15px) scale(1.05); box-shadow: 0 0 40px rgba(138,43,226,0.5); }
+    .phase { background: rgba(20,20,20,0.8); padding: 40px; border-radius: 20px; max-width: 800px; margin: 40px auto; box-shadow: 0 0 20px rgba(138,43,226,0.2); transition: 0.5s; backdrop-filter: blur(10px); }
+    .phase:hover { transform: scale(1.03); }
     .socials { display: flex; justify-content: center; gap: 40px; margin: 50px 0; }
-    .social { font-size: 3em; color: #00FF00; transition: 0.5s; }
-    .social:hover { transform: scale(1.3) rotate(360deg); }
+    .social { font-size: 2.8em; color: #8a2be2; transition: 0.5s; }
+    .social:hover { transform: scale(1.2) rotate(15deg); }
     footer { padding: 50px; background: #111; font-size: 0.9em; }
-    .fade-in { opacity: 0; transform: translateY(50px); transition: 1.5s; }
+    .fade-in { opacity: 0; transform: translateY(40px); transition: 1.5s; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
-    @media (max-width: 768px) { h1 { font-size: 3em; } .btn { font-size: 1.5em; padding: 15px 30px; } .characters { flex-direction: column; gap: 20px; } .characters img { width: 200px; } .tokenomics, .tiers { grid-template-columns: 1fr; } .social { font-size: 2em; } }
+    @media (max-width: 768px) { h1 { font-size: 3.5em; } .btn { font-size: 1.4em; padding: 15px 35px; } .characters { flex-direction: column; gap: 30px; } .characters img { width: 200px; } .tokenomics, .tiers { grid-template-columns: 1fr; } .social { font-size: 2.2em; } }
   </style>
   <script>
     gsap.registerPlugin(ScrollTrigger);
@@ -54,7 +54,7 @@
         ease: "power3.out"
       });
     });
-    gsap.to(".hero", { backgroundPositionY: "50%", ease: "none", scrollTrigger: { trigger: ".hero", scrub: true } });
+    gsap.to(".hero", { backgroundPositionY: "40%", ease: "none", scrollTrigger: { trigger: ".hero", scrub: true } });
   </script>
 </head>
 <body>
@@ -65,7 +65,6 @@
     <a href="#tokenomics">Tokenomics</a>
     <a href="#airdrops">Airdrops</a>
     <a href="#roadmap">Roadmap</a>
-    <a href="#integration">Integration</a>
     <a href="#whitepaper">Whitepaper</a>
     <a href="#community">Community</a>
   </nav>
@@ -76,7 +75,7 @@
       <img src="images/girl-character.png" alt="BTD Girl">
     </div>
     <h1>$BTD – Buy The Dip</h1>
-    <p>Pure data driven power, full transparency, and a vision for lasting success. Our bot is designed to eat dips, accumulate supply, and drive growth through buybacks and accumulation while ensuring sustainability. Buy the Dip, Secure Max Rewards.</p>
+    <p>Pure data driven power, full transparency, and a vision for lasting success. Our bot is designed to eat dips, accumulate supply, and drive growth while ensuring sustainability. Buy the Dip, Secure Max Rewards.</p>
     <a href="PUMP_FUN_LINK" class="btn">Buy on pump.fun</a>
   </section>
 
@@ -141,12 +140,6 @@
         <p>Hold >3% – 35%</p>
       </div>
     </div>
-    </section>
-
-  <section id="integration" class="fade-in">
-    <h2>BTD Bot Integration – Coming Soon</h2>
-    <p>Integrate the BTD Bot into your project for free – allocate a percentage of your fees to burning $BTD and 1% to the BTD Bot Team. Coming soon – email buythedip.btdbot@gmail.com for inquiries.</p>
-    <p>Telegram and bot integration coming on roadmap – stay tuned.</p>
   </section>
 
   <section id="roadmap" class="fade-in">
