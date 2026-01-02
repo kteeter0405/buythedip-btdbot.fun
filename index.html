@@ -4,86 +4,107 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>$BTD – Buy The Dip Bot</title>
-  <meta name="description" content="The smartest Solana memecoin bot – eats dips, rewards holders, burns supply. Everyone wins.">
+  <meta name="description" content="The smartest Solana memecoin bot that eats every dip, rewards loyal holders, burns supply, and builds a community where everyone wins. Join the dip eaters revolution.">
   <meta property="og:title" content="$BTD – Buy The Dip Bot">
-  <meta property="og:description" content="Smart bot eats every dip, weekly rewards, burns for sustainability.">
-  <meta property="og:image" content="LOGO_URL">
+  <meta property="og:description" content="Smart bot eats dips, weekly rewards, burns for sustainability. Secure your bag and watch it grow.">
+  <meta property="og:image" content="images/logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <style>
-    body { margin: 0; font-family: 'Arial', sans-serif; background: #000; color: #fff; text-align: center; }
-    header { padding: 100px 20px; background: linear-gradient(#000, #111); }
-    h1 { font-size: 4em; margin: 0; color: #00FF00; }
-    h2 { font-size: 2em; color: #00FF00; }
-    p { font-size: 1.2em; max-width: 800px; margin: 20px auto; }
-    .btn { display: inline-block; padding: 15px 30px; margin: 20px; background: #00FF00; color: #000; font-weight: bold; text-decoration: none; border-radius: 50px; font-size: 1.5em; }
-    .btn:hover { background: #00cc00; }
-    section { padding: 80px 20px; }
-    .chart { width: 100%; max-width: 1000px; margin: 40px auto; }
-    .tokenomics { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 1000px; margin: 40px auto; }
-    .card { background: #111; padding: 30px; border-radius: 20px; }
-    footer { padding: 40px; background: #111; }
-    @media (max-width: 768px) { h1 { font-size: 2.5em; } .btn { font-size: 1.2em; } }
+    body { margin: 0; font-family: 'Montserrat', sans-serif; background: #000; color: #fff; overflow-x: hidden; }
+    section { padding: 80px 20px; text-align: center; }
+    h1, h2 { color: #00FF00; text-shadow: 0 0 10px #00FF00; }
+    h1 { font-size: 4em; margin: 0; }
+    h2 { font-size: 2.5em; margin-bottom: 40px; }
+    p { font-size: 1.2em; line-height: 1.6; max-width: 800px; margin: 0 auto 20px; }
+    .btn { display: inline-block; padding: 15px 40px; background: #00FF00; color: #000; font-weight: bold; text-decoration: none; border-radius: 50px; font-size: 1.5em; transition: transform 0.3s; }
+    .btn:hover { transform: scale(1.1); }
+    .hero { height: 100vh; background: linear-gradient(to bottom, #000, #111); display: flex; flex-direction: column; justify-content: center; align-items: center; animation: fadeIn 1s; }
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+    .chart { width: 90%; max-width: 1200px; margin: 0 auto; border: 2px solid #00FF00; border-radius: 20px; overflow: hidden; }
+    .tokenomics { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
+    .card { background: #111; padding: 30px; border-radius: 20px; width: 200px; animation: fadeIn 1s 0.5s both; }
+    .roadmap { max-width: 800px; margin: 0 auto; }
+    .phase { background: #111; padding: 20px; border-radius: 20px; margin: 20px 0; animation: fadeIn 1s 1s both; }
+    .socials { display: flex; justify-content: center; gap: 30px; }
+    .social { color: #00FF00; font-size: 2em; text-decoration: none; transition: transform 0.3s; }
+    .social:hover { transform: scale(1.2); }
+    footer { padding: 40px; background: #111; font-size: 0.8em; }
+    @media (max-width: 768px) { h1 { font-size: 3em; } .hero { padding: 50px 20px; } .tokenomics { flex-direction: column; } .card { width: 100%; } }
   </style>
 </head>
 <body>
-  <header>
-    <img src="LOGO_URL" alt="$BTD Logo" width="200">
-    <h1>$BTD – Buy The Dip</h1>
-    <p>The smartest Solana memecoin bot that eats every dip, rewards loyal holders, and burns supply for long-term growth. Everyone wins.</p>
+  <section class="hero">
+    <img src="images/logo.png" alt="$BTD Logo" width="150">
+    <h1>$BTD – Buy The Dip Bot</h1>
+    <p>Feel the thrill of every dip turning to gold. Our smart bot eats dips like a boss, rewards true holders with weekly airdrops, burns supply for scarcity, and builds a community where everyone wins. Join the dip eaters – secure your bag and watch it soar!</p>
     <a href="PUMP_FUN_LINK" class="btn">Buy on pump.fun</a>
     <a href="TG_LINK" class="btn">Join Telegram</a>
-  </header>
+  </section>
 
   <section>
     <h2>Live Chart</h2>
     <div class="chart">
-      DEXSCREENER_EMBED
+      <iframe src="DEXSCREENER_EMBED" width="100%" height="500" frameborder="0"></iframe>
     </div>
   </section>
 
   <section>
     <h2>Why $BTD?</h2>
-    <p>Smart AI bot buys dips, micro-sells pumps, allocates marketing raids, weekly Friday airdrops, burns at milestones.</p>
+    <p>Imagine a bot that never misses a dip, turning market fear into your opportunity. $BTD is the ultimate memecoin bot – aggressive accumulation, strategic micro-sells, auto marketing raids to keep the hype alive, weekly Friday airdrops for loyal holders, and burns at milestones to drive scarcity and value. We're not just a token; we're a movement where the community thrives, investors win big, and the bot ensures long-term sustainability. Get in early – the dips are ours to eat!</p>
   </section>
 
   <section>
     <h2>Tokenomics</h2>
+    <p>Designed for growth and fairness – no tax, locked liquidity, bot allocations that reward everyone.</p>
     <div class="tokenomics">
       <div class="card">
         <h3>Total Supply</h3>
         <p>1,000,000,000</p>
       </div>
-      <div class="card">
+<div class="card">
         <h3>Tax</h3>
         <p>0%</p>
       </div>
       <div class="card">
         <h3>Liquidity</h3>
-        <p>Locked Raydium LP</p>
+        <p>Locked on Raydium</p>
       </div>
       <div class="card">
-        <h3>Bot Allocation</h3>
+        <h3>Bot Allocations</h3>
         <p>60% Buyback<br>15% Rewards<br>5% Marketing<br>20% Reserve</p>
       </div>
     </div>
   </section>
 
-  <section>
+  <section class="roadmap">
     <h2>Roadmap</h2>
-    <p>Phase 1: pump.fun launch + bot live</p>
-    <p>Phase 2: Raydium migration, rewards start</p>
-    <p>Phase 3: Marketing raids, burns</p>
-    <p>Phase 4: CEX listings, partnerships</p>
+    <div class="phase">
+      <h3>Phase 1: Launch & Bot Activation</h3>
+      <p>Pump.fun launch, bot live eating dips from day 1.</p>
+    </div>
+    <div class="phase">
+      <h3>Phase 2: Raydium & Rewards</h3>
+      <p>Migration to Raydium, start weekly Friday airdrops for 7-day holders.</p>
+    </div>
+    <div class="phase">
+      <h3>Phase 3: Marketing & Burns</h3>
+      <p>Auto raids on decay, burns at MC milestones for scarcity.</p>
+    </div>
+    <div class="phase">
+      <h3>Phase 4: CEX & Partnerships</h3>
+      <p>Listings on major exchanges, big collaborations for massive growth.</p>
+    </div>
   </section>
 
   <section>
     <h2>Join the Dip Eaters</h2>
-    <p>
-      <a href="X_LINK">X (Twitter)</a> | 
-      <a href="TG_LINK">Telegram</a> | 
-      <a href="DEXSCREENER_LINK">DexScreener</a> | 
-      <a href="SOLSCAN_LINK">Solscan</a>
-    </p>
+    <p>Be part of the community that's redefining memecoins – where dips are opportunities and holders are kings.</p>
+    <div class="socials">
+      <a href="X_LINK" class="social">X</a>
+      <a href="TG_LINK" class="social">Telegram</a>
+      <a href="DEXSCREENER_LINK" class="social">DexScreener</a>
+      <a href="SOLSCAN_LINK" class="social">Solscan</a>
+    </div>
     <a href="PUMP_FUN_LINK" class="btn">Buy $BTD Now</a>
   </section>
 
