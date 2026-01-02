@@ -3,50 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>$BTD – Buy The Dip Bot</title>
-  <meta name="description" content="The smartest Solana memecoin bot – eats dips, rewards holders with weekly airdrops (7-day hold required), burns supply, 0% tax. Transparent, powerful, community-driven growth.">
-  <meta property="og:title" content="$BTD – Buy The Dip Bot">
+  <title>$BTD – Buy The Dip</title>
+  <meta name="description" content="The smartest Solana memecoin bot that eats every dip, rewards loyal holders with weekly airdrops (7-day hold required), burns supply, 0% tax. Transparent, powerful, community-driven growth.">
+  <meta property="og:title" content="$BTD – Buy The Dip">
   <meta property="og:description" content="Eat every dip, get rewarded weekly, watch supply burn – $BTD bot turns fear into gains for all holders.">
-  <meta property="og:image" content="images/hero-banner.png">
+  <meta property="og:image" content="images/hero.png">
   <meta name="twitter:card" content="summary_large_image">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <style>
     body { margin: 0; font-family: 'Montserrat', sans-serif; background: #000; color: #fff; overflow-x: hidden; }
     nav { background: rgba(0,0,0,0.8); padding: 20px; position: fixed; width: 100%; z-index: 100; backdrop-filter: blur(10px); }
     nav a { color: #00FF00; text-decoration: none; margin: 0 20px; font-weight: bold; transition: 0.3s; }
     nav a:hover { color: #fff; text-shadow: 0 0 10px #00FF00; }
     section { padding: 120px 20px; text-align: center; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; }
-    .hero { background: url('images/hero-banner.png') center/cover no-repeat; animation: fadeIn 2s; }
-    h1 { font-size: 5em; color: #00FF00; text-shadow: 0 0 30px #00FF00; animation: glow 2s infinite alternate; }
-    @keyframes glow { from {text-shadow: 0 0 20px #00FF00;} to {text-shadow: 0 0 40px #00FF00;} }
-    p { font-size: 1.3em; max-width: 900px; margin: 30px auto; line-height: 1.8; animation: fadeIn 1s 0.5s both; }
-    .btn { padding: 20px 50px; background: #00FF00; color: #000; font-weight: bold; border-radius: 50px; font-size: 1.8em; transition: 0.3s; box-shadow: 0 0 20px #00FF00; animation: fadeIn 1s 1s both; }
+    .hero { height: 100vh; background: url('images/hero.png') center/cover no-repeat; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    h1 { font-size: 5em; color: #00FF00; text-shadow: 0 0 30px #00FF00; }
+    p { font-size: 1.3em; max-width: 900px; margin: 30px auto; line-height: 1.8; }
+    .btn { padding: 20px 50px; background: #00FF00; color: #000; font-weight: bold; border-radius: 50px; font-size: 1.8em; transition: 0.3s; box-shadow: 0 0 20px #00FF00; }
     .btn:hover { transform: scale(1.1); box-shadow: 0 0 40px #00FF00; }
-    .chart { max-width: 1200px; margin: 50px auto; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px #00FF00; animation: fadeIn 1s 0.5s both; }
-    .tokenomics { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 50px auto; animation: fadeIn 1s 1s both; }
+    .chart { max-width: 1200px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px #00FF00; }
+    .tokenomics { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 50px auto; }
     .card { background: #111; padding: 40px; border-radius: 20px; width: 220px; box-shadow: 0 0 20px #00FF00; transition: 0.3s; }
     .card:hover { transform: translateY(-20px); box-shadow: 0 0 40px #00FF00; }
     .tiers { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 50px auto; }
     .tier { background: #111; padding: 30px; border-radius: 20px; width: 200px; box-shadow: 0 0 20px #00FF00; }
-    .roadmap .phase { background: #111; padding: 40px; border-radius: 20px; margin: 40px auto; max-width: 800px; box-shadow: 0 0 20px #00FF00; transition: 0.3s; }
-    .roadmap .phase:hover { transform: scale(1.05); }
+    .roadmap { max-width: 800px; margin: 0 auto; }
+    .phase { background: #111; padding: 40px; border-radius: 20px; margin: 40px auto; box-shadow: 0 0 20px #00FF00; transition: 0.3s; }
+    .phase:hover { transform: scale(1.05); }
     .socials { display: flex; justify-content: center; gap: 50px; margin: 50px 0; }
     .social { font-size: 3em; color: #00FF00; transition: 0.3s; }
     .social:hover { transform: rotate(360deg) scale(1.2); color: #fff; }
-    footer { padding: 50px; background: #111; }
-    @keyframes fadeIn { from {opacity: 0; transform: translateY(50px);} to {opacity: 1; transform: translateY(0);} }
-    @media (max-width: 768px) { h1 { font-size: 3em; } .btn { font-size: 1.5em; } .tokenomics, .tiers { flex-direction: column; } }
+    footer { padding: 50px; background: #111; font-size: 0.8em; }
+    .fade-in { opacity: 0; transform: translateY(50px); transition: 1s; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 768px) { h1 { font-size: 3em; } .btn { font-size: 1.5em; } .tokenomics, .tiers { flex-direction: column; } .card, .tier { width: 100%; } .social { font-size: 2em; } }
   </style>
   <script>
-    // Smooth scroll + parallax (light JS)
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    // GSAP animations + scroll trigger
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray(".fade-in").forEach(elem => {
+      gsap.from(elem, {
+        scrollTrigger: elem,
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2
       });
     });
-    window.addEventListener('scroll', () => {
-      document.querySelector('.hero').style.backgroundPositionY = ${window.scrollY * 0.5}px;
-    });
+    gsap.from(".hero", {duration: 2, opacity: 0, scale: 0.9, ease: "power3.out"});
+    gsap.from(".card, .tier, .phase", {duration: 1, y: 50, opacity: 0, stagger: 0.2, scrollTrigger: {trigger: ".tokenomics", start: "top 80%"}});
   </script>
 </head>
 <body>
@@ -61,28 +67,28 @@
     <a href="#community">Community</a>
   </nav>
 
-  <section id="hero" class="hero">
-    <img src="images/hero-banner.png" alt="Eat The Dip" width="80%">
-    <h1>$BTD – Eat The Dip</h1>
-    <p>Feel the power as our bot turns every dip into your gain. $BTD is the ultimate Solana memecoin experience – aggressive dip eating, weekly rewards for loyal holders, supply burns for scarcity, and a community where everyone thrives. No hidden fees, full transparency, real sustainability. The dips are calling – answer with $BTD.</p>
+  <section id="hero">
+    <img src="images/hero.png" alt="BTD Bot Eating Dip" width="300">
+    <h1>$BTD – Buy The Dip</h1>
+    <p>Experience the rush of turning every market dip into your personal victory. $BTD is the revolutionary Solana memecoin powered by the BTD Bot – an unstoppable force that devours dips, rewards dedicated holders, burns supply for scarcity, and ensures long-term success for all. No gimmicks, no rugs – just pure power, transparency, and a community where everyone eats together and wins big.</p>
     <a href="PUMP_FUN_LINK" class="btn">Buy on pump.fun</a>
   </section>
 
   <section id="chart">
-    <h2>Live Chart</h2>
-    <div class="chart">
+    <h2 class="fade-in">Live Chart</h2>
+    <div class="chart fade-in">
       <iframe src="DEXSCREENER_EMBED" width="100%" height="600" frameborder="0"></iframe>
     </div>
   </section>
 
-  <section id="about">
-    <h2>The $BTD Revolution</h2>
-    <p>In a world of dumps and rugs, $BTD stands tall. Our AI-powered bot doesn't just survive dips – it devours them, accumulating supply to protect and grow your bag. We believe in real value: 0% transaction tax/fees, weekly Friday airdrops for holders who commit (7-day hold required), automatic marketing raids when volume decays, and burns at key MC milestones to reduce supply and drive price. We're transparent, community-first, and built for the long haul – quick pumps with sustainable growth. Join us and feel the thrill of dips turning to diamonds.</p>
+  <section id="about" class="fade-in">
+    <h2>The $BTD Story & Values</h2>
+    <p>In the chaotic world of crypto, dips are the ultimate test – but with $BTD, they're your greatest opportunity. Our BTD Bot is designed to eat dips with aggressive buys, accumulate supply for stability, and respond to market manipulation with precision. We value transparency (0% tax, full details below), community (weekly rewards for loyal holders), and sustainability (burns and reserve for long-term growth). Our goal: quick explosive growth through smart bot action, while building a lasting coin where holders feel the power of collective success. We're here for the long haul – join us and feel the thrill of dips turned to diamonds.</p>
   </section>
 
-  <section id="tokenomics">
-    <h2>Tokenomics – Transparent & Fair</h2>
-    <p>0% tax/fees per transaction – buy/sell freely. Allocations optimized for accumulation and rewards.</p>
+  <section id="tokenomics" class="fade-in">
+    <h2>Tokenomics – Built for Growth & Fairness</h2>
+    <p>0% tax on buys/sells – no hidden costs. Pump.fun takes 0.1% service burn per transaction (standard), and our Raydium pool will have 0.25% LP fee distributed to holders (added post-100k MC). Allocations optimized for bot action and community benefits.</p>
     <div class="tokenomics">
       <div class="card">
         <h3>Total Supply</h3>
@@ -90,11 +96,11 @@
       </div>
       <div class="card">
         <h3>Tax/Fees</h3>
-        <p>0% (no cost to trade)</p>
+        <p>0% on buys/sells</p>
       </div>
       <div class="card">
         <h3>Liquidity</h3>
-        <p>Locked on Raydium</p>
+        <p>Locked on Raydium (added post-100k MC)</p>
       </div>
       <div class="card">
         <h3>Bot Allocations</h3>
@@ -102,57 +108,58 @@
       </div>
     </div>
     <img src="images/tokenomics-pie.png" alt="Tokenomics Pie" width="600">
+    <p>Burns: 5% at MC milestones for scarcity (no limit – ongoing).</p>
   </section>
 
-  <section id="airdrops">
+  <section id="airdrops" class="fade-in">
     <h2>Weekly Airdrops – Reward Loyalty</h2>
-    <p>Every Friday, we airdrop SOL rewards to holders who prove commitment: must hold $BTD for at least 7 consecutive days (no sells). 66% base reward to all eligible, 34% tiered based on hold amount (example tiers – adjustable):</p>
+    <p>Every Friday, we airdrop SOL rewards to holders who commit: must hold $BTD for at least 7 consecutive days (no sells during period). Eligibility checked via snapshots – transparent, fair. 66% base to all eligible, 34% tiered based on hold amount (examples – adjustable):</p>
     <div class="tiers">
       <div class="tier">
         <img src="images/diamond-badge.png" width="100">
         <h3>Diamond</h3>
-        <p>Top 1% holders – 35% of tier pool</p>
+        <p>>5% of supply – 35% tier pool</p>
       </div>
       <div class="tier">
         <img src="images/platinum-badge.png" width="100">
         <h3>Platinum</h3>
-        <p>Top 5% – 30%</p>
+        <p>>2% – 30%</p>
       </div>
       <div class="tier">
         <img src="images/gold-badge.png" width="100">
         <h3>Gold</h3>
-        <p>Top 10% – 20%</p>
+        <p>>1% – 20%</p>
       </div>
       <div class="tier">
         <img src="images/silver-badge.png" width="100">
         <h3>Silver</h3>
-        <p>Top 20% – 10%</p>
+        <p>>0.5% – 10%</p>
       </div>
       <div class="tier">
         <img src="images/bronze-badge.png" width="100">
         <h3>Bronze</h3>
-        <p>Rest – 5%</p>
-      </div>
+        <p>>0.1% – 5%</p>
+        </div>
     </div>
-    <p>Hold strong – get rewarded bigger.</p>
+    <p>Hold strong – bigger hold = bigger rewards. No favoritism – bot automated.</p>
   </section>
 
-  <section id="roadmap">
-    <h2>Roadmap – Path to Dominance</h2>
-    <img src="images/roadmap-timeline.png" alt="Roadmap" width="80%">
-    <p>Phase 1: Pump.fun launch + bot activation (dip eating live).<br>Phase 2: Raydium migration + weekly airdrops start.<br>Phase 3: Marketing raids + milestone burns.<br>Phase 4: Major CEX listings + partnerships.</p>
+  <section id="roadmap" class="fade-in">
+    <h2>Roadmap – Our Path to Success</h2>
+    <img src="images/roadmap-timeline.png" alt="Roadmap Timeline" width="80%">
+    <p>Phase 1: Pump.fun launch + BTD Bot activation (immediate dip eating).<br>Phase 2: Post-100k MC Raydium pool + liquidity addition (locked LP).<br>Phase 3: Weekly airdrops, marketing raids, milestone burns.<br>Phase 4: CEX listings, partnerships for massive scaling.</p>
   </section>
 
-  <section id="whitepaper">
+  <section id="whitepaper" class="fade-in">
     <h2>Whitepaper – Full Transparency</h2>
-    <p>Everything explained: bot logic, airdrop math, allocations, burns, vision.
-      No secrets – read and see why $BTD is built different.</p>
-    <a href="WHITEPAPER_LINK" class="btn">Read Whitepaper</a>
+    <p>Read our whitepaper for complete details on the BTD Bot, tokenomics, airdrops (7-day hold, tiers), burns, fees (pump.fun 0.1% burn, Raydium 0.25% LP to holders), values (transparency, community, growth), and long-term sustainability plan. No secrets – see how we ensure everyone wins.</p>
+    <a href="whitepaper.pdf" class="btn">Read Whitepaper</a>
+    <img src="images/whitepaper-cover.png" alt="Whitepaper Cover" width="400">
   </section>
 
-  <section id="community">
-    <h2>Join the Dip Eaters Community</h2>
-    <p>We're more than a coin – we're a movement of winners who turn fear into fortune. Eat dips with us, get rewarded, build together. The power is yours.</p>
+  <section id="community" class="fade-in">
+    <h2>Join the Dip Eaters</h2>
+    <p>Become part of a community that's not just holding – we're conquering. Eat dips, get rewarded, build together. Feel the power of $BTD.</p>
     <div class="socials">
       <a href="X_LINK" class="social">X</a>
       <a href="TG_LINK" class="social">Telegram</a>
@@ -163,7 +170,7 @@
   </section>
 
   <footer>
-    <p>© 2026 $BTD – Buy The Dip Bot | All Rights Reserved</p>
+    <p>© 2026 $BTD – All Rights Reserved</p>
   </footer>
 </body>
 </html>
