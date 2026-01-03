@@ -7,26 +7,58 @@
   <meta name="description" content="The smartest Solana memecoin bot – eats dips, rewards holders, burns supply. Everyone wins.">
   <meta property="og:title" content="$BTD – Buy The Dip">
   <meta property="og:description" content="Buy dips, get rewarded, burn supply – $BTD bot turns fear to gains.">
-  <meta property="og:image" content="images/logo.png">
+  <meta property="og:image" content="images/hero-bg.png">
   <meta name="twitter:card" content="summary_large_image">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <style>
-    body { margin: 0; font-family: 'Montserrat', sans-serif; background: #f8f8f8; color: #333; }
-    nav { background: #fff; padding: 20px; position: fixed; width: 100%; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-    nav a { color: #006400; text-decoration: none; margin: 0 20px; font-weight: bold; }
-    nav a:hover { color: #00ff00; }
-    section { padding: 100px 20px; text-align: center; }
-    .hero { height: 100vh; background: #f0f0f0; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-    h1 { font-size: 4em; color: #006400; }
-    p { font-size: 1.2em; max-width: 800px; margin: 20px auto; }
-    .btn { padding: 15px 40px; background: #00ff00; color: #000; font-weight: bold; border-radius: 50px; font-size: 1.5em; }
-    .btn:hover { background: #00cc00; }
-    .chart { max-width: 1000px; margin: 0 auto; }
-    .tokenomics, .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
-    .card, .tier { background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-    footer { padding: 40px; background: #f0f0f0; font-size: 0.8em; }
-    @media (max-width: 768px) { h1 { font-size: 3em; } .btn { font-size: 1.2em; } }
+    body { margin: 0; font-family: 'Montserrat', sans-serif; background: #f8f8f8; color: #333; scroll-behavior: smooth; overflow-x: hidden; }
+    nav { background: #fff; padding: 20px; position: fixed; width: 100%; z-index: 100; backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    nav a { color: #006400; text-decoration: none; margin: 0 15px; font-weight: bold; transition: 0.3s; }
+    nav a:hover { color: #00ff00; text-shadow: 0 0 10px #00ff00; }
+    section { padding: 120px 20px; text-align: center; position: relative; min-height: 80vh; }
+    .hero { height: 100vh; background: url('images/hero-bg.png') center/cover no-repeat; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; }
+    .characters { display: flex; gap: 60px; margin: 40px 0; animation: float 8s infinite ease-in-out; }
+    .characters img { width: 280px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,200,0,0.1); transition: 0.6s; }
+    .characters img:hover { transform: translateY(-20px) scale(1.05); box-shadow: 0 20px 50px rgba(0,255,0,0.2); }
+    @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0); } }
+    h1 { font-size: 4.5em; color: #006400; animation: fadeIn 1.5s; }
+    p { font-size: 1.3em; max-width: 900px; margin: 30px auto; line-height: 1.8; animation: fadeIn 1.5s 0.5s both; }
+    .btn { padding: 18px 50px; background: #00ff00; color: #000; font-weight: bold; border-radius: 50px; font-size: 1.6em; transition: 0.4s; box-shadow: 0 10px 30px rgba(0,255,0,0.2); animation: pulse 2.5s infinite; }
+    .btn:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,255,0,0.3); }
+    @keyframes pulse { 0% { box-shadow: 0 0 20px rgba(0,255,0,0.4); } 50% { box-shadow: 0 0 35px rgba(0,255,0,0.6); } 100% { box-shadow: 0 0 20px rgba(0,255,0,0.4); } }
+    .chart { max-width: 1200px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); animation: fadeIn 1.5s 0.5s both; }
+    .tokenomics, .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; animation: fadeIn 1.5s 1s both; }
+    .card, .tier { background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.6s; }
+    .card:hover, .tier:hover { transform: translateY(-20px); box-shadow: 0 20px 50px rgba(0,255,0,0.1); }
+    .phase { background: #fff; padding: 40px; border-radius: 20px; max-width: 800px; margin: 40px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.6s; }
+    .phase:hover { transform: translateY(-10px); }
+    .socials { display: flex; justify-content: center; gap: 40px; margin: 50px 0; animation: fadeIn 1.5s 1.5s both; }
+    .social { font-size: 2.8em; color: #006400; transition: 0.5s; }
+    .social:hover { transform: scale(1.2); color: #00ff00; }
+    footer { padding: 50px; background: #f0f0f0; font-size: 0.9em; animation: fadeIn 1.5s 2s both; }
+    .fade-in { opacity: 0; transform: translateY(50px); transition: 1.5s; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    @keyframes fadeIn { from {opacity: 0; transform: translateY(50px);} to {opacity: 1; transform: translateY(0);} }
+    .steps { max-width: 800px; margin: 0 auto; list-style: none; padding: 0; }
+    .steps li { background: #fff; padding: 20px; border-radius: 20px; margin: 20px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.6s; }
+    .steps li:hover { transform: translateY(-10px); }
+    @media (max-width: 768px) { h1 { font-size: 3.5em; } .btn { font-size: 1.4em; padding: 15px 35px; } .characters { flex-direction: column; gap: 30px; } .characters img { width: 200px; } .tokenomics, .tiers { grid-template-columns: 1fr; } .social { font-size: 2.2em; } .steps li { padding: 15px; } }
   </style>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray(".fade-in").forEach(elem => {
+      gsap.to(elem, {
+        scrollTrigger: { trigger: elem, start: "top 80%", toggleActions: "play none none reverse" },
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        ease: "power3.out"
+      });
+    });
+    gsap.to(".hero", { backgroundPositionY: "40%", ease: "none", scrollTrigger: { trigger: ".hero", scrub: true } });
+  </script>
 </head>
 <body>
   <nav>
@@ -35,31 +67,36 @@
     <a href="#about">About</a>
     <a href="#tokenomics">Tokenomics</a>
     <a href="#airdrops">Airdrops</a>
+    <a href="#how-to-buy">How to Buy</a>
+    <a href="#coming-soon">Coming Soon</a>
     <a href="#roadmap">Roadmap</a>
     <a href="#whitepaper">Whitepaper</a>
     <a href="#community">Community</a>
   </nav>
 
-  <section id="hero">
-    <img src="images/logo.png" alt="$BTD Logo" width="200">
+  <section id="hero" class="hero fade-in">
+    <div class="characters">
+      <img src="images/guy-character.png" alt="BTD Guy">
+      <img src="images/girl-character.png" alt="BTD Girl">
+    </div>
     <h1>$BTD – Buy The Dip</h1>
     <p>Pure data driven power, full transparency, and a vision for lasting success. Our bot is designed to eat dips, accumulate supply, and drive growth while ensuring sustainability. Buy the Dip, Secure Max Rewards.</p>
     <a href="PUMP_FUN_LINK" class="btn">Buy on pump.fun</a>
   </section>
 
-  <section id="chart">
+  <section id="chart" class="fade-in">
     <h2>Live Chart</h2>
     <div class="chart">
-      <iframe src="DEXSCREENER_EMBED" width="100%" height="500" frameborder="0"></iframe>
+      <iframe src="DEXSCREENER_EMBED" width="100%" height="600" frameborder="0"></iframe>
     </div>
   </section>
 
-  <section id="about">
+  <section id="about" class="fade-in">
     <h2>The $BTD Story & Values</h2>
     <p>In the chaotic world of crypto, dips are the ultimate test – but with $BTD, they're your greatest opportunity. Our BTD Dip Eating Bot is designed to eat dips with aggressive buys, accumulate supply for stability, and respond to market manipulation with precision. We add liquidity to our Raydium LP post-100K MC. Our values: Full transparency (full details below), community (shared rewards, Hype x Homies), sustainability (buybacks, burns, and reserve). Buy the Dip!</p>
   </section>
 
-  <section id="tokenomics">
+  <section id="tokenomics" class="fade-in">
     <h2>Tokenomics – Transparent & Fair</h2>
     <p>0.33% per transaction. Allocations optimized for bot action and community benefits.</p>
     <div class="tokenomics">
@@ -78,12 +115,12 @@
       <div class="card">
         <h3>Allocations</h3>
         <p>Marketing (as needed)<br>Rewards<br>Reserve<br>Buybacks</p>
-        </div>
+      </div>
     </div>
     <p>Burns at milestones: 100,000, 250,000, 500,000, 1,000,000, 2,500,000, 5,000,000, 10,000,000, 25,000,000, 50,000,000, 100,000,000, 250,000,000, 500,000,000, 1,000,000,000.</p>
   </section>
 
-  <section id="airdrops">
+  <section id="airdrops" class="fade-in">
     <h2>Weekly Airdrops – Reward Loyalty</h2>
     <p>Every Friday, airdrops reward holders who commit: must hold $BTD for at least 7 consecutive days (no sells during period). Eligibility checked via snapshots – transparent, fair. 65% base to all eligible, 35% to premium tiers by hold amount (examples – based on total holders):</p>
     <div class="tiers">
@@ -110,7 +147,23 @@
     </div>
   </section>
 
-  <section id="roadmap">
+  <section id="how-to-buy" class="fade-in">
+    <h2>How to Buy and Keep Holdings Safe</h2>
+    <ol class="steps">
+      <li>Download a trusted Solana compatible crypto wallet.</li>
+      <li>Write your private key down and lock it away somewhere safe you wont lose it.</li>
+      <li>Buy Solana.</li>
+      <li>Use our CA: to double check youre purchasing the right coin.</li>
+      <li>Buy dips, stack, relax, get rewarded.</li>
+    </ol>
+  </section>
+
+  <section id="coming-soon" class="fade-in">
+    <h2>Coming Soon: Bot Integration and Dashboard</h2>
+    <p>Integrate our BTD Bot for free – percentage to burn $BTD, 1% to team. Email for inquiries. Dashboard for holders stats and integrations coming soon.</p>
+  </section>
+
+  <section id="roadmap" class="fade-in">
     <h2>Roadmap – Our Path to Success</h2>
     <p>Our roadmap is straightforward: quick growth through buybacks and accumulation, long-term with burns/rewards/community.</p>
     <div class="phase">
@@ -131,20 +184,20 @@
     </div>
   </section>
 
-  <section id="whitepaper">
+  <section id="whitepaper" class="fade-in">
     <h2>Whitepaper – Full Transparency</h2>
     <p>Our whitepaper lays out everything: bot mechanics (dip buys, sells, rewards), tokenomics (allocations, burns), airdrops (7-day hold, tiers), fees (0.33%), and our values/goals for quick growth + long-term sustainability. No secrets – see how we ensure everyone wins.</p>
     <a href="whitepaper.pdf" class="btn">Read Whitepaper</a>
   </section>
 
-  <section id="community">
+  <section id="community" class="fade-in">
     <h2>Buy the Dip, Become One of Us</h2>
     <p>Become part of a community that's not just holding – we're conquering. Buy dips with us, get rewarded, build together. Feel the power of $BTD.</p>
     <div class="socials">
-      <a href="X_LINK"><img src="images/x-logo.png" alt="X" width="40"></a>
-      <a href="TG_LINK"><img src="images/telegram-logo.png" alt="Telegram" width="40"></a>
-      <a href="DEXSCREENER_LINK"><img src="images/dexscreener-logo.png" alt="DexScreener" width="40"></a>
-      <a href="SOLSCAN_LINK"><img src="images/solscan-logo.png" alt="Solscan" width="40"></a>
+      <a href="X_LINK" class="social"><img src="images/x-logo.png" alt="X" width="40"></a>
+      <a href="TG_LINK" class="social"><img src="images/telegram-logo.png" alt="Telegram" width="40"></a>
+      <a href="DEXSCREENER_LINK" class="social"><img src="images/dexscreener-logo.png" alt="DexScreener" width="40"></a>
+      <a href="SOLSCAN_LINK" class="social"><img src="images/solscan-logo.png" alt="Solscan" width="40"></a>
     </div>
     <a href="PUMP_FUN_LINK" class="btn">Buy $BTD Now</a>
   </section>
