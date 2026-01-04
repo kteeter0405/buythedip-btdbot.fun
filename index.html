@@ -7,7 +7,7 @@
   <meta name="description" content="The smartest Solana memecoin bot – eats dips, rewards holders, burns supply. Everyone wins.">
   <meta property="og:title" content="$BTD – Buy The Dip">
   <meta property="og:description" content="Buy dips, get rewarded, burn supply – $BTD bot turns fear to gains.">
-  <meta property="og:image" content="https://github.com/kteeter0405/buythedip-btdbot.fun/blob/f5f31fcc4ba3e629b55d2b7e14be0449f512e1ba/Hero-bg.png">
+  <meta property="og:image" content="images/hero-bg.png">
   <meta name="twitter:card" content="summary_large_image">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <style>
@@ -16,9 +16,9 @@
     nav a { color: #dda0dd; text-decoration: none; margin: 0 15px; font-weight: bold; transition: 0.3s; }
     nav a:hover { color: #fff; text-shadow: 0 0 15px #8a2be2; }
     section { padding: 120px 20px; text-align: center; position: relative; min-height: 80vh; }
-    .hero { height: 100vh; background: linear-gradient(to bottom, #0a001f, #1a0033); display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; }
+    .hero { height: 100vh; background: url('images/hero-bg.png') center/cover no-repeat; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; }
     .characters { display: flex; gap: 50px; margin: 40px 0; }
-    .characters img { width: 250px; border-radius: 20px; box-shadow: 0 0 30px rgba(138,43,226,0.3); transition: 0.5s; }
+    .characters img { width: 280px; border-radius: 20px; box-shadow: 0 0 30px rgba(138,43,226,0.3); transition: 0.5s; }
     .characters img:hover { transform: scale(1.05); box-shadow: 0 0 50px rgba(138,43,226,0.6); }
     h1 { font-size: 4.5em; color: #dda0dd; text-shadow: 0 0 20px rgba(138,43,226,0.5); }
     p { font-size: 1.3em; max-width: 900px; margin: 30px auto; line-height: 1.8; }
@@ -56,8 +56,8 @@
 
   <section id="hero">
     <div class="characters">
-      <img src="https://github.com/kteeter0405/buythedip-btdbot.fun/blob/cd4fab74f5d4d5705686e7c92c980658d43d3bd5/guy%20character.png" alt="BTD Guy">
-      <img src="https://github.com/kteeter0405/buythedip-btdbot.fun/blob/9009636ca355dd0b1a4f1d6ce98bf142a8502e75/girl-character.png" alt="BTD Girl">
+      <img src="images/guy-character.png" alt="BTD Guy">
+      <img src="images/girl-character.png" alt="BTD Girl">
     </div>
     <h1>$BTD – Buy The Dip</h1>
     <p>Pure data driven power, full transparency, and a vision for lasting success. Our bot is designed to eat dips, accumulate supply, and drive growth while ensuring sustainability. Buy the Dip, Secure Max Rewards.</p>
@@ -79,6 +79,7 @@
   <section id="tokenomics">
     <h2>Tokenomics – Transparent & Fair</h2>
     <p>0.33% per transaction. Allocations optimized for bot action and community benefits.</p>
+    <img src="images/tokenomics-pie.png" alt="Tokenomics Pie Chart" style="width:80%; max-width:800px; border-radius:20px; box-shadow:0 0 40px rgba(138,43,226,0.5); margin:40px 0;">
     <div class="tokenomics">
       <div class="card">
         <h3>Total Supply</h3>
@@ -105,22 +106,29 @@
     <p>Every Friday, airdrops reward holders who commit: must hold $BTD for at least 7 consecutive days (no sells during period). Eligibility checked via snapshots – transparent, fair. 65% base to all eligible, 35% to premium tiers by hold amount (examples – based on total holders):</p>
     <div class="tiers">
       <div class="tier">
+        <img src="images/bronze-badge.png" alt="Bronze Tier" style="width:180px; margin-bottom:20px; border-radius:50%; box-shadow:0 0 30px rgba(138,43,226,0.5);">
         <h3>Bronze</h3>
         <p>Hold >0.1% supply – 5% of premium pool</p>
       </div>
       <div class="tier">
+        <img src="images/silver-badge.png" alt="Silver Tier" style="width:180px; margin-bottom:20px; border-radius:50%; box-shadow:0 0 30px rgba(138,43,226,0.5);">
         <h3>Silver</h3>
         <p>Hold >0.5% – 10%</p>
       </div>
       <div class="tier">
+        <img src="images/gold-badge.png" alt="Gold Tier" style="width:180px; margin-bottom:20px; border-radius:50%; box-shadow:0 0 30px rgba(138,43,226,0.5);">
         <h3>Gold</h3>
         <p>Hold >1% – 20%</p>
       </div>
+    </div>
+    <div class="tiers" style="margin-top:40px;">
       <div class="tier">
+        <img src="images/platinum-badge.png" alt="Platinum Tier" style="width:220px; margin-bottom:20px; border-radius:50%; box-shadow:0 0 40px rgba(138,43,226,0.6);">
         <h3>Platinum</h3>
         <p>Hold >2% – 30%</p>
       </div>
       <div class="tier">
+        <img src="images/diamond-badge.png" alt="Diamond Tier" style="width:220px; margin-bottom:20px; border-radius:50%; box-shadow:0 0 40px rgba(138,43,226,0.6);">
         <h3>Diamond</h3>
         <p>Hold >3% – 35%</p>
       </div>
@@ -140,12 +148,13 @@
 
   <section id="coming-soon">
     <h2>Coming Soon: Bot Integration and Dashboard</h2>
-    <p>Integrate our BTD Bot for free – we take 5% percent of your fees, 80% to burn $BTD, 20% to team. Email for inquiries.Dashboard for holders stats and integrations coming soon.</p>
+    <p>Integrate our BTD Bot for free – percentage to burn $BTD, 1% to team. Email for inquiries. Dashboard for holders stats and integrations coming soon.</p>
   </section>
 
   <section id="roadmap">
     <h2>Roadmap – Our Path to Success</h2>
     <p>Our roadmap is straightforward: quick growth through buybacks and accumulation, long-term with burns/rewards/community.</p>
+    <img src="images/roadmap.png" alt="Roadmap Timeline" style="width:100%; max-width:1200px; border-radius:20px; box-shadow:0 0 40px rgba(138,43,226,0.5); margin:40px 0;">
     <div class="phase">
       <h3>Phase 1</h3>
       <p>Pump.fun launch, bot live, Raydium LP post-100K MC.</p>
@@ -167,6 +176,7 @@
   <section id="whitepaper">
     <h2>Whitepaper – Full Transparency</h2>
     <p>Our whitepaper lays out everything: bot mechanics (dip buys, sells, rewards), tokenomics (allocations, burns), airdrops (7-day hold, tiers), fees (0.33%), and our values/goals for quick growth + long-term sustainability. No secrets – see how we ensure everyone wins.</p>
+    <img src="images/whitepaper-cover.png" alt="Whitepaper Cover" style="width:80%; max-width:800px; border-radius:20px; box-shadow:0 0 40px rgba(138,43,226,0.5); margin:40px 0;">
     <a href="whitepaper.pdf" class="btn">Read Whitepaper</a>
   </section>
 
@@ -188,6 +198,3 @@
   </footer>
 </body>
 </html>
-
-
-
