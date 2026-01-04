@@ -18,22 +18,23 @@
     section { padding: 80px 20px; text-align: center; position: relative; }
     h2 { font-size: 3.5em; color: #dda0dd; text-shadow: 0 0 25px rgba(138,43,226,0.6); margin-bottom: 30px; }
     .hero { height: 100vh; background: url('images/hero-bg.png') center/cover no-repeat; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; }
-    .characters { display: flex; justify-content: space-between; width: 80%; max-width: 1000px; margin: 40px 0; }
+    .characters { display: flex; justify-content: space-between; width: 90%; max-width: 1200px; margin: 30px 0; }
     .characters img { width: 350px; transition: 0.5s; }
     .characters img:hover { transform: scale(1.08); box-shadow: 0 0 60px rgba(138,43,226,0.8); }
     h1 { font-size: 5em; color: #dda0dd; text-shadow: 0 0 30px rgba(138,43,226,0.7); }
     p { font-size: 1.4em; max-width: 1000px; margin: 20px auto; line-height: 1.8; }
     .btn { padding: 20px 50px; background: linear-gradient(to right, #8a2be2, #dda0dd); color: #fff; font-weight: bold; border-radius: 50px; font-size: 1.8em; transition: 0.4s; box-shadow: 0 0 30px rgba(138,43,226,0.5); }
     .btn:hover { transform: scale(1.1); box-shadow: 0 0 50px rgba(138,43,226,0.9); }
-    .chart { max-width: 1000px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 0 40px rgba(138,43,226,0.4); }
+    .chart { max-width: 1000px; margin: 0 auto 40px; border-radius: 20px; overflow: hidden; box-shadow: 0 0 40px rgba(138,43,226,0.4); }
+    .tokenomics-pie { width:70%; max-width:700px; border-radius:50%; box-shadow:0 0 50px rgba(138,43,226,0.6); margin:40px 0; transition: 0.5s; }
+    .tokenomics-pie:hover { transform: scale(1.05); box-shadow:0 0 70px rgba(138,43,226,0.8); }
     .tokenomics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: 40px auto; }
     .card { background: rgba(20,10,40,0.8); padding: 40px; border-radius: 20px; box-shadow: 0 0 30px rgba(138,43,226,0.3); transition: 0.5s; backdrop-filter: blur(10px); border: 1px solid rgba(138,43,226,0.4); }
     .card:hover { transform: translateY(-20px) scale(1.05); box-shadow: 0 0 50px rgba(138,43,226,0.6); }
-    .tokenomics-pie { width:70%; max-width:700px; border-radius:50%; box-shadow:0 0 50px rgba(138,43,226,0.6); margin:40px 0; transition: 0.5s; }
-    .tokenomics-pie:hover { transform: scale(1.05); box-shadow:0 0 70px rgba(138,43,226,0.8); }
     .burns { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; max-width: 1200px; margin: 40px auto; }
     .burn { background: rgba(20,10,40,0.8); padding: 25px; border-radius: 15px; box-shadow: 0 0 30px rgba(138,43,226,0.4); transition: 0.5s; font-size: 1.2em; }
     .burn:hover { transform: scale(1.1); box-shadow: 0 0 50px rgba(138,43,226,0.7); }
+    .burn-large { grid-column: span 2; font-size: 1.5em; padding: 40px; }
     .tiers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
     .tier { transition: 0.5s; }
     .tier:hover { transform: translateY(-10px); }
@@ -73,7 +74,6 @@
     </div>
     <h1>$BTD – Buy The Dip</h1>
     <p>Pure data driven power, full transparency, and a vision for lasting success. Our bot is designed to eat dips, accumulate supply, and drive growth while ensuring sustainability. Buy the Dip, Secure Max Rewards.</p>
-    <a href="PUMP_FUN_LINK" class="btn">Buy on pump.fun</a>
   </section>
 
   <section id="chart">
@@ -81,6 +81,7 @@
     <div class="chart">
       <iframe src="DEXSCREENER_EMBED" width="100%" height="600" frameborder="0"></iframe>
     </div>
+    <a href="PUMP_FUN_LINK" class="btn">Buy $BTD Now</a>
   </section>
 
   <section id="about">
@@ -124,7 +125,7 @@
       <div class="burn">100M MC</div>
       <div class="burn">250M MC</div>
       <div class="burn">500M MC</div>
-      <div class="burn">1B MC</div>
+      <div class="burn-large">1B MC<br>Roadmap V2.0</div>
     </div>
   </section>
 
@@ -135,29 +136,29 @@
       <div class="tier">
         <img src="images/bronze-badge.png" alt="Bronze Tier" style="width:180px; margin-bottom:20px;">
         <h3>Bronze</h3>
-        <p>Hold >0.1% supply – 5% of premium pool</p>
+        <p>Hold >0.1%</p>
       </div>
       <div class="tier">
         <img src="images/silver-badge.png" alt="Silver Tier" style="width:180px; margin-bottom:20px;">
         <h3>Silver</h3>
-        <p>Hold >0.5% – 10%</p>
+        <p>Hold >0.5%</p>
       </div>
       <div class="tier">
         <img src="images/gold-badge.png" alt="Gold Tier" style="width:180px; margin-bottom:20px;">
         <h3>Gold</h3>
-        <p>Hold >1% – 20%</p>
+        <p>Hold >1%</p>
       </div>
     </div>
     <div class="tiers-grid">
       <div class="tier">
         <img src="images/platinum-badge.png" alt="Platinum Tier" style="width:220px; margin-bottom:20px;">
         <h3>Platinum</h3>
-        <p>Hold >2% – 30%</p>
+        <p>Hold >2%</p>
       </div>
       <div class="tier">
         <img src="images/diamond-badge.png" alt="Diamond Tier" style="width:220px; margin-bottom:20px;">
         <h3>Diamond</h3>
-        <p>Hold >3% – 35%</p>
+        <p>Hold >3%</p>
       </div>
     </div>
   </section>
@@ -224,8 +225,10 @@
   <section id="whitepaper">
     <h2>Whitepaper – Full Transparency</h2>
     <p>Our whitepaper details bot mechanics, tokenomics, airdrops, fees, and long-term vision. No secrets – everything for community success.</p>
-    <img src="images/whitepaper-cover.png" alt="Whitepaper Cover" style="width:60%; max-width:600px; border-radius:20px; box-shadow:0 0 40px rgba(138,43,226,0.5); margin:40px 0;">
-    <a href="whitepaper.pdf" class="btn">Read Whitepaper</a>
+    <div style="display:flex; justify-content:center; align-items:center; flex-direction:column;">
+      <img src="images/whitepaper-cover.png" alt="Whitepaper Cover" style="width:60%; max-width:600px; border-radius:20px; box-shadow:0 0 40px rgba(138,43,226,0.5); margin:40px 0;">
+      <a href="whitepaper.pdf" class="btn">Read Whitepaper</a>
+    </div>
   </section>
 
   <section id="community">
