@@ -7,57 +7,38 @@
   <meta name="description" content="The smartest Solana memecoin bot – eats dips, rewards holders, burns supply. Everyone wins.">
   <meta property="og:title" content="$BTD – Buy The Dip">
   <meta property="og:description" content="Buy dips, get rewarded, burn supply – $BTD bot turns fear to gains.">
-  <meta property="og:image" content="https://github.com/kteeter0405/buythedip-btdbot.fun/blob/e846a165917ca6b0e942b9b9edbb213cfbb29e06/Hero-bg.png">
+  <meta property="og:image" content="images/hero-bg.png">
   <meta name="twitter:card" content="summary_large_image">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-  <script src="js/gsap.min.js"></script>
-  <script src="js/ScrollTrigger.min.js"></script>
   <style>
-    body { margin: 0; font-family: 'Montserrat', sans-serif; background: linear-gradient(to bottom, #f0e6ff, #e6ffe6); color: #4b0082; scroll-behavior: smooth; overflow-x: hidden; }
-    nav { background: rgba(255,255,255,0.95); padding: 20px; position: fixed; width: 100%; z-index: 100; backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(138,43,226,0.05); }
-    nav a { color: #4b0082; text-decoration: none; margin: 0 20px; font-weight: bold; transition: 0.3s; }
-    nav a:hover { color: #90ee90; text-shadow: 0 0 10px #90ee90; }
+    body { margin: 0; font-family: 'Montserrat', sans-serif; background: #0a001f; color: #dda0dd; scroll-behavior: smooth; overflow-x: hidden; }
+    nav { background: rgba(10,0,30,0.9); padding: 20px; position: fixed; width: 100%; z-index: 100; backdrop-filter: blur(15px); box-shadow: 0 4px 20px rgba(138,43,226,0.3); border-bottom: 1px solid rgba(138,43,226,0.2); }
+    nav a { color: #dda0dd; text-decoration: none; margin: 0 15px; font-weight: bold; transition: 0.3s; }
+    nav a:hover { color: #fff; text-shadow: 0 0 15px #8a2be2; }
     section { padding: 120px 20px; text-align: center; position: relative; min-height: 80vh; }
-    .hero { height: 100vh; background: linear-gradient(to bottom, #f0e6ff, #e6ffe6); display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; }
-    .characters { display: flex; gap: 60px; margin: 40px 0; animation: float 8s infinite ease-in-out; }
-    .characters img { width: 280px; border-radius: 30px; box-shadow: 0 10px 30px rgba(138,43,226,0.1); transition: 0.6s; }
-    .characters img:hover { transform: translateY(-20px) scale(1.05); box-shadow: 0 20px 50px rgba(138,43,226,0.2); }
-    @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0); } }
-    h1 { font-size: 4.5em; color: #4b0082; animation: fadeIn 1.5s; }
-    p { font-size: 1.3em; max-width: 900px; margin: 30px auto; line-height: 1.8; animation: fadeIn 1.5s 0.5s both; }
-    .btn { padding: 18px 50px; background: #90ee90; color: #4b0082; font-weight: bold; border-radius: 50px; font-size: 1.6em; transition: 0.4s; box-shadow: 0 10px 30px rgba(144,238,144,0.2); animation: pulse 2.5s infinite; }
-    .btn:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(144,238,144,0.3); }
-    @keyframes pulse { 0% { box-shadow: 0 0 20px rgba(144,238,144,0.4); } 50% { box-shadow: 0 0 35px rgba(144,238,144,0.6); } 100% { box-shadow: 0 0 20px rgba(144,238,144,0.4); } }
-    .chart { max-width: 1200px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); animation: fadeIn 1.5s 0.5s both; }
-    .tokenomics, .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; animation: fadeIn 1.5s 1s both; }
-    .card, .tier { background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.6s; }
-    .card:hover, .tier:hover { transform: translateY(-20px); box-shadow: 0 20px 50px rgba(144,238,144,0.1); }
-    .phase { background: #fff; padding: 40px; border-radius: 20px; max-width: 800px; margin: 40px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.6s; }
-    .phase:hover { transform: translateY(-10px); }
-    .socials { display: flex; justify-content: center; gap: 40px; margin: 50px 0; animation: fadeIn 1.5s 1.5s both; }
-    .social { font-size: 2.8em; color: #4b0082; transition: 0.5s; }
-    .social:hover { transform: scale(1.2); color: #90ee90; }
-    footer { padding: 50px; background: #f0e6ff; font-size: 0.9em; animation: fadeIn 1.5s 2s both; }
-    .fade-in { opacity: 0; transform: translateY(50px); transition: 1.5s; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .hero { height: 100vh; background: linear-gradient(to bottom, #0a001f, #1a0033); display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; }
+    .characters { display: flex; gap: 50px; margin: 40px 0; }
+    .characters img { width: 250px; border-radius: 20px; box-shadow: 0 0 30px rgba(138,43,226,0.3); transition: 0.5s; }
+    .characters img:hover { transform: scale(1.05); box-shadow: 0 0 50px rgba(138,43,226,0.6); }
+    h1 { font-size: 4.5em; color: #dda0dd; text-shadow: 0 0 20px rgba(138,43,226,0.5); }
+    p { font-size: 1.3em; max-width: 900px; margin: 30px auto; line-height: 1.8; }
+    .btn { padding: 18px 45px; background: linear-gradient(to right, #8a2be2, #dda0dd); color: #fff; font-weight: bold; border-radius: 50px; font-size: 1.6em; transition: 0.4s; box-shadow: 0 0 20px rgba(138,43,226,0.4); }
+    .btn:hover { transform: scale(1.08); box-shadow: 0 0 40px rgba(138,43,226,0.8); }
+    .chart { max-width: 1200px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px rgba(138,43,226,0.3); }
+    .tokenomics, .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+    .card, .tier { background: rgba(20,10,40,0.8); padding: 40px; border-radius: 20px; box-shadow: 0 0 20px rgba(138,43,226,0.2); transition: 0.5s; backdrop-filter: blur(10px); border: 1px solid rgba(138,43,226,0.3); }
+    .card:hover, .tier:hover { transform: translateY(-15px) scale(1.05); box-shadow: 0 0 40px rgba(138,43,226,0.5); }
+    .phase { background: rgba(20,10,40,0.8); padding: 40px; border-radius: 20px; max-width: 800px; margin: 40px auto; box-shadow: 0 0 20px rgba(138,43,226,0.2); transition: 0.5s; backdrop-filter: blur(10px); }
+    .phase:hover { transform: scale(1.03); }
+    .socials { display: flex; justify-content: center; gap: 40px; margin: 50px 0; }
+    .social { font-size: 2.8em; color: #dda0dd; transition: 0.5s; }
+    .social:hover { transform: scale(1.2) rotate(15deg); }
+    footer { padding: 50px; background: #0a001f; font-size: 0.9em; border-top: 1px solid rgba(138,43,226,0.2); }
     .steps { max-width: 800px; margin: 0 auto; list-style: none; padding: 0; }
-    .steps li { background: #fff; padding: 20px; border-radius: 20px; margin: 20px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.6s; }
+    .steps li { background: rgba(20,10,40,0.8); padding: 20px; border-radius: 20px; margin: 20px 0; box-shadow: 0 0 20px rgba(138,43,226,0.2); transition: 0.5s; backdrop-filter: blur(10px); }
     .steps li:hover { transform: translateY(-10px); }
     @media (max-width: 768px) { h1 { font-size: 3.5em; } .btn { font-size: 1.4em; padding: 15px 35px; } .characters { flex-direction: column; gap: 30px; } .characters img { width: 200px; } .tokenomics, .tiers { grid-template-columns: 1fr; } .social { font-size: 2.2em; } .steps li { padding: 15px; } }
   </style>
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.utils.toArray(".fade-in").forEach(elem => {
-      gsap.to(elem, {
-        scrollTrigger: { trigger: elem, start: "top 80%", toggleActions: "play none none reverse" },
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-        ease: "power3.out"
-      });
-    });
-    gsap.to(".hero", { backgroundPositionY: "40%", ease: "none", scrollTrigger: { trigger: ".hero", scrub: true } });
-  </script>
 </head>
 <body>
   <nav>
@@ -73,7 +54,7 @@
     <a href="#community">Community</a>
   </nav>
 
-  <section id="hero" class="hero fade-in">
+  <section id="hero">
     <div class="characters">
       <img src="images/guy-character.png" alt="BTD Guy">
       <img src="images/girl-character.png" alt="BTD Girl">
@@ -83,19 +64,19 @@
     <a href="PUMP_FUN_LINK" class="btn">Buy on pump.fun</a>
   </section>
 
-  <section id="chart" class="fade-in">
+  <section id="chart">
     <h2>Live Chart</h2>
     <div class="chart">
       <iframe src="DEXSCREENER_EMBED" width="100%" height="600" frameborder="0"></iframe>
     </div>
   </section>
 
-  <section id="about" class="fade-in">
+  <section id="about">
     <h2>The $BTD Story & Values</h2>
     <p>In the chaotic world of crypto, dips are the ultimate test – but with $BTD, they're your greatest opportunity. Our BTD Dip Eating Bot is designed to eat dips with aggressive buys, accumulate supply for stability, and respond to market manipulation with precision. We add liquidity to our Raydium LP post-100K MC. Our values: Full transparency (full details below), community (shared rewards, Hype x Homies), sustainability (buybacks, burns, and reserve). Buy the Dip!</p>
   </section>
 
-  <section id="tokenomics" class="fade-in">
+  <section id="tokenomics">
     <h2>Tokenomics – Transparent & Fair</h2>
     <p>0.33% per transaction. Allocations optimized for bot action and community benefits.</p>
     <div class="tokenomics">
@@ -119,7 +100,7 @@
     <p>Burns at milestones: 100,000, 250,000, 500,000, 1,000,000, 2,500,000, 5,000,000, 10,000,000, 25,000,000, 50,000,000, 100,000,000, 250,000,000, 500,000,000, 1,000,000,000.</p>
   </section>
 
-  <section id="airdrops" class="fade-in">
+  <section id="airdrops">
     <h2>Weekly Airdrops – Reward Loyalty</h2>
     <p>Every Friday, airdrops reward holders who commit: must hold $BTD for at least 7 consecutive days (no sells during period). Eligibility checked via snapshots – transparent, fair. 65% base to all eligible, 35% to premium tiers by hold amount (examples – based on total holders):</p>
     <div class="tiers">
@@ -146,7 +127,7 @@
     </div>
   </section>
 
-  <section id="how-to-buy" class="fade-in">
+  <section id="how-to-buy">
     <h2>How to Buy and Keep Holdings Safe</h2>
     <ol class="steps">
       <li>Download a trusted Solana compatible crypto wallet.</li>
@@ -157,12 +138,12 @@
     </ol>
   </section>
 
-  <section id="coming-soon" class="fade-in">
+  <section id="coming-soon">
     <h2>Coming Soon: Bot Integration and Dashboard</h2>
-    <p>Integrate our BTD Bot for free – percentage to burn $BTD, 1% to team. Email for inquiries. Dashboard for holders stats and integrations coming soon.</p>
+    <p>Integrate our BTD Bot for free – we take 5% percent of your fees, 80% to burn $BTD, 20% to team. Email for inquiries.Dashboard for holders stats and integrations coming soon.</p>
   </section>
 
-  <section id="roadmap" class="fade-in">
+  <section id="roadmap">
     <h2>Roadmap – Our Path to Success</h2>
     <p>Our roadmap is straightforward: quick growth through buybacks and accumulation, long-term with burns/rewards/community.</p>
     <div class="phase">
@@ -183,20 +164,20 @@
     </div>
   </section>
 
-  <section id="whitepaper" class="fade-in">
+  <section id="whitepaper">
     <h2>Whitepaper – Full Transparency</h2>
     <p>Our whitepaper lays out everything: bot mechanics (dip buys, sells, rewards), tokenomics (allocations, burns), airdrops (7-day hold, tiers), fees (0.33%), and our values/goals for quick growth + long-term sustainability. No secrets – see how we ensure everyone wins.</p>
     <a href="whitepaper.pdf" class="btn">Read Whitepaper</a>
   </section>
 
-  <section id="community" class="fade-in">
+  <section id="community">
     <h2>Buy the Dip, Become One of Us</h2>
     <p>Become part of a community that's not just holding – we're conquering. Buy dips with us, get rewarded, build together. Feel the power of $BTD.</p>
     <div class="socials">
-      <a href="X_LINK" class="social"><img src="images/x-logo.png" alt="X" width="40"></a>
-      <a href="TG_LINK" class="social"><img src="images/telegram-logo.png" alt="Telegram" width="40"></a>
-      <a href="DEXSCREENER_LINK" class="social"><img src="images/dexscreener-logo.png" alt="DexScreener" width="40"></a>
-      <a href="SOLSCAN_LINK" class="social"><img src="images/solscan-logo.png" alt="Solscan" width="40"></a>
+      <a href="X_LINK"><img src="images/x-logo.png" alt="X" width="40"></a>
+      <a href="TG_LINK"><img src="images/telegram-logo.png" alt="Telegram" width="40"></a>
+      <a href="DEXSCREENER_LINK"><img src="images/dexscreener-logo.png" alt="DexScreener" width="40"></a>
+      <a href="SOLSCAN_LINK"><img src="images/solscan-logo.png" alt="Solscan" width="40"></a>
     </div>
     <a href="PUMP_FUN_LINK" class="btn">Buy $BTD Now</a>
   </section>
@@ -207,4 +188,3 @@
   </footer>
 </body>
 </html>
-
