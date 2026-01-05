@@ -18,7 +18,7 @@
     section { padding: 70px 20px; text-align: center; position: relative; }
     h2 { font-size: 3.5em; color: #dda0dd; text-shadow: 0 0 25px rgba(138,43,226,0.6); margin-bottom: 30px; }
     .hero { height: 100vh; background: url('images/hero-bg.png') center/cover no-repeat; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; position: relative; }
-    .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, rgba(138,43,226,0.1), transparent); pointer-events: none; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, rgba(138,43,226,0.15), transparent 70%); pointer-events: none; }
     .characters { display: flex; justify-content: space-between; width: 90%; max-width: 1200px; margin: 30px 0; position: relative; z-index: 2; }
     .characters img { width: 380px; transition: 0.5s; filter: drop-shadow(0 0 40px rgba(138,43,226,0.6)); }
     .characters img:hover { transform: scale(1.08); filter: drop-shadow(0 0 60px rgba(138,43,226,0.9)); }
@@ -28,18 +28,18 @@
     .btn:hover { transform: scale(1.1); box-shadow: 0 0 50px rgba(138,43,226,0.9); }
     .chart { max-width: 1000px; margin: 0 auto 40px; border-radius: 20px; overflow: hidden; box-shadow: 0 0 40px rgba(138,43,226,0.4); }
     .tokenomics-pie { width:65%; max-width:650px; border-radius:50%; box-shadow:0 0 60px rgba(138,43,226,0.7); margin:40px 0; transition: 0.5s; }
-    .tokenomics-pie:hover { transform: scale(1.05) rotate(5deg); box-shadow:0 0 80px rgba(138,43,226,0.9); }
+    .tokenomics-pie:hover { transform: scale(1.05); box-shadow:0 0 80px rgba(138,43,226,0.9); }
     .tokenomics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: 40px auto; }
     .card { background: rgba(20,10,40,0.8); padding: 40px; border-radius: 20px; box-shadow: 0 0 30px rgba(138,43,226,0.3); transition: 0.5s; backdrop-filter: blur(10px); border: 1px solid rgba(138,43,226,0.4); }
     .card:hover { transform: translateY(-20px) scale(1.05); box-shadow: 0 0 50px rgba(138,43,226,0.6); }
     .burns { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; max-width: 1200px; margin: 40px auto; }
     .burn { background: rgba(20,10,40,0.8); padding: 25px; border-radius: 15px; box-shadow: 0 0 30px rgba(138,43,226,0.4); transition: 0.5s; font-size: 1.2em; }
     .burn:hover { transform: scale(1.1); box-shadow: 0 0 50px rgba(138,43,226,0.7); }
-    .burn-large { grid-column: 1 / -1; font-size: 1.8em; padding: 40px; background: rgba(30,0,60,0.9); }
+    .burn-large { grid-column: 1 / -1; font-size: 1.8em; padding: 40px; background: linear-gradient(to bottom, rgba(30,0,60,0.9), rgba(10,0,30,0.9)); }
     .tiers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1000px; margin: 0 auto 40px; }
-    .tiers-grid-bottom { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; max-width: 700px; margin: 0 auto; }
-    .tier img { width: 200px; transition: 0.5s; }
-    .tier img:hover { transform: scale(1.1) rotate(5deg); }
+    .tiers-grid-bottom { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; max-width: 700px; margin: 0 auto; justify-content: center; }
+    .tier img { width: 200px; transition: 0.5s; filter: drop-shadow(0 0 30px rgba(138,43,226,0.6)); }
+    .tier img:hover { transform: scale(1.1); filter: drop-shadow(0 0 50px rgba(138,43,226,0.9)); }
     .tier-bottom img { width: 240px; }
     .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 40px auto; }
     .step { background: rgba(20,10,40,0.8); padding: 35px; border-radius: 20px; box-shadow: 0 0 30px rgba(138,43,226,0.3); transition: 0.5s; border: 1px solid rgba(138,43,226,0.4); }
@@ -244,7 +244,7 @@
   </section>
 
   <footer>
-    <p>© 2026 $BTD – All Rights Reserved • (It took a billion dollars to develop this masterpiece)</p>
+    <p>© 2026 $BTD – All Rights Reserved</p>
     <p>Not Financial Advice. Do Your Own Research. Buy The Dip.</p>
   </footer>
 </body>
