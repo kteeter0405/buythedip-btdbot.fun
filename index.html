@@ -15,42 +15,48 @@
     nav { background: rgba(10,0,30,0.9); padding: 15px; position: fixed; width: 100%; z-index: 100; backdrop-filter: blur(15px); box-shadow: 0 4px 20px rgba(138,43,226,0.3); border-bottom: 1px solid rgba(138,43,226,0.2); }
     nav a { color: #dda0dd; text-decoration: none; margin: 0 12px; font-weight: bold; font-size: 1.1em; transition: 0.3s; }
     nav a:hover { color: #fff; text-shadow: 0 0 15px #8a2be2; }
-    section { padding: 80px 20px; text-align: center; position: relative; }
+    section { padding: 70px 20px; text-align: center; position: relative; }
     h2 { font-size: 3.5em; color: #dda0dd; text-shadow: 0 0 25px rgba(138,43,226,0.6); margin-bottom: 30px; }
-    .hero { height: 100vh; background: url('images/hero-bg.png') center/cover no-repeat; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; }
-    .characters { display: flex; justify-content: space-between; width: 90%; max-width: 1200px; margin: 30px 0; }
-    .characters img { width: 350px; transition: 0.5s; }
-    .characters img:hover { transform: scale(1.08); box-shadow: 0 0 60px rgba(138,43,226,0.8); }
-    h1 { font-size: 5em; color: #dda0dd; text-shadow: 0 0 30px rgba(138,43,226,0.7); }
-    p { font-size: 1.4em; max-width: 1000px; margin: 20px auto; line-height: 1.8; }
-    .btn { padding: 20px 50px; background: linear-gradient(to right, #8a2be2, #dda0dd); color: #fff; font-weight: bold; border-radius: 50px; font-size: 1.8em; transition: 0.4s; box-shadow: 0 0 30px rgba(138,43,226,0.5); }
+    .hero { height: 100vh; background: url('images/hero-bg.png') center/cover no-repeat; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; position: relative; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, rgba(138,43,226,0.1), transparent); pointer-events: none; }
+    .characters { display: flex; justify-content: space-between; width: 90%; max-width: 1200px; margin: 30px 0; position: relative; z-index: 2; }
+    .characters img { width: 380px; transition: 0.5s; filter: drop-shadow(0 0 40px rgba(138,43,226,0.6)); }
+    .characters img:hover { transform: scale(1.08); filter: drop-shadow(0 0 60px rgba(138,43,226,0.9)); }
+    h1 { font-size: 5em; color: #dda0dd; text-shadow: 0 0 30px rgba(138,43,226,0.7); z-index: 2; }
+    p { font-size: 1.4em; max-width: 1000px; margin: 20px auto; line-height: 1.8; z-index: 2; }
+    .btn { padding: 20px 50px; background: linear-gradient(to right, #8a2be2, #dda0dd); color: #fff; font-weight: bold; border-radius: 50px; font-size: 1.8em; transition: 0.4s; box-shadow: 0 0 30px rgba(138,43,226,0.5); z-index: 2; }
     .btn:hover { transform: scale(1.1); box-shadow: 0 0 50px rgba(138,43,226,0.9); }
     .chart { max-width: 1000px; margin: 0 auto 40px; border-radius: 20px; overflow: hidden; box-shadow: 0 0 40px rgba(138,43,226,0.4); }
-    .tokenomics-pie { width:70%; max-width:700px; border-radius:50%; box-shadow:0 0 50px rgba(138,43,226,0.6); margin:40px 0; transition: 0.5s; }
-    .tokenomics-pie:hover { transform: scale(1.05); box-shadow:0 0 70px rgba(138,43,226,0.8); }
+    .tokenomics-pie { width:65%; max-width:650px; border-radius:50%; box-shadow:0 0 60px rgba(138,43,226,0.7); margin:40px 0; transition: 0.5s; }
+    .tokenomics-pie:hover { transform: scale(1.05) rotate(5deg); box-shadow:0 0 80px rgba(138,43,226,0.9); }
     .tokenomics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: 40px auto; }
     .card { background: rgba(20,10,40,0.8); padding: 40px; border-radius: 20px; box-shadow: 0 0 30px rgba(138,43,226,0.3); transition: 0.5s; backdrop-filter: blur(10px); border: 1px solid rgba(138,43,226,0.4); }
     .card:hover { transform: translateY(-20px) scale(1.05); box-shadow: 0 0 50px rgba(138,43,226,0.6); }
     .burns { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; max-width: 1200px; margin: 40px auto; }
     .burn { background: rgba(20,10,40,0.8); padding: 25px; border-radius: 15px; box-shadow: 0 0 30px rgba(138,43,226,0.4); transition: 0.5s; font-size: 1.2em; }
     .burn:hover { transform: scale(1.1); box-shadow: 0 0 50px rgba(138,43,226,0.7); }
-    .burn-large { grid-column: span 2; font-size: 1.5em; padding: 40px; }
-    .tiers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-    .tier { transition: 0.5s; }
-    .tier:hover { transform: translateY(-10px); }
+    .burn-large { grid-column: 1 / -1; font-size: 1.8em; padding: 40px; background: rgba(30,0,60,0.9); }
+    .tiers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1000px; margin: 0 auto 40px; }
+    .tiers-grid-bottom { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; max-width: 700px; margin: 0 auto; }
+    .tier img { width: 200px; transition: 0.5s; }
+    .tier img:hover { transform: scale(1.1) rotate(5deg); }
+    .tier-bottom img { width: 240px; }
     .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 40px auto; }
-    .step { background: rgba(20,10,40,0.8); padding: 30px; border-radius: 20px; box-shadow: 0 0 30px rgba(138,43,226,0.3); transition: 0.5s; border: 1px solid rgba(138,43,226,0.4); }
+    .step { background: rgba(20,10,40,0.8); padding: 35px; border-radius: 20px; box-shadow: 0 0 30px rgba(138,43,226,0.3); transition: 0.5s; border: 1px solid rgba(138,43,226,0.4); }
     .step:hover { transform: translateY(-10px); box-shadow: 0 0 50px rgba(138,43,226,0.6); }
     .coming-soon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 40px auto; }
-    .coming { background: rgba(20,10,40,0.8); padding: 30px; border-radius: 20px; box-shadow: 0 0 30px rgba(138,43,226,0.3); }
+    .coming img { width:100%; border-radius:20px; box-shadow:0 0 40px rgba(138,43,226,0.5); transition: 0.5s; }
+    .coming img:hover { transform: scale(1.05); }
     .roadmap-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 1000px; margin: 40px auto; }
-    .phase { background: rgba(20,10,40,0.8); padding: 30px; border-radius: 20px; box-shadow: 0 0 30px rgba(138,43,226,0.3); transition: 0.5s; }
+    .phase { background: rgba(20,10,40,0.8); padding: 35px; border-radius: 20px; box-shadow: 0 0 30px rgba(138,43,226,0.3); transition: 0.5s; }
     .phase:hover { transform: scale(1.05); }
-    .socials { display: flex; justify-content: center; gap: 50px; margin: 50px 0; }
-    .social img { width: 50px; transition: 0.5s; filter: drop-shadow(0 0 20px #8a2be2); }
-    .social img:hover { transform: scale(1.3) rotate(20deg); filter: drop-shadow(0 0 40px #dda0dd); }
+    .whitepaper-cover { width:50%; max-width:500px; border-radius:20px; box-shadow:0 0 50px rgba(138,43,226,0.6); margin:40px 0; transition: 0.5s; }
+    .whitepaper-cover:hover { transform: scale(1.05); }
+    .socials { display: flex; justify-content: center; gap: 60px; margin: 50px 0; }
+    .social img { width: 60px; transition: 0.5s; filter: drop-shadow(0 0 20px #8a2be2); }
+    .social img:hover { transform: scale(1.3) rotate(20deg); filter: drop-shadow(0 0 50px #dda0dd); }
     footer { padding: 40px; background: #0a001f; font-size: 1em; border-top: 1px solid rgba(138,43,226,0.3); text-align: center; }
-    @media (max-width: 768px) { h1 { font-size: 3.8em; } h2 { font-size: 2.8em; } .btn { font-size: 1.5em; padding: 15px 35px; } .characters { flex-direction: column; gap: 40px; } .characters img { width: 250px; } .roadmap-grid { grid-template-columns: 1fr; } .tiers-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { h1 { font-size: 3.8em; } h2 { font-size: 2.8em; } .btn { font-size: 1.5em; padding: 15px 35px; } .characters { flex-direction: column; gap: 40px; } .characters img { width: 280px; } .roadmap-grid { grid-template-columns: 1fr; } .tiers-grid { grid-template-columns: 1fr; } .tiers-grid-bottom { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -74,6 +80,7 @@
     </div>
     <h1>$BTD – Buy The Dip</h1>
     <p>Pure data driven power, full transparency, and a vision for lasting success. Our bot is designed to eat dips, accumulate supply, and drive growth while ensuring sustainability. Buy the Dip, Secure Max Rewards.</p>
+    <a href="PUMP_FUN_LINK" class="btn">Buy $BTD Now</a>
   </section>
 
   <section id="chart">
@@ -81,7 +88,6 @@
     <div class="chart">
       <iframe src="DEXSCREENER_EMBED" width="100%" height="600" frameborder="0"></iframe>
     </div>
-    <a href="PUMP_FUN_LINK" class="btn">Buy $BTD Now</a>
   </section>
 
   <section id="about">
@@ -91,7 +97,7 @@
 
   <section id="tokenomics">
     <h2>Tokenomics – Transparent & Fair</h2>
-    <p>0.33% per transaction. Allocations optimized for bot action and community benefits.</p>
+    <p>0.33% per transaction (post 1M MC: 0.1% automatic burn, 0.23% allocations).</p>
     <img src="images/tokenomics-pie.png" alt="Tokenomics Pie Chart" class="tokenomics-pie">
     <div class="tokenomics-grid">
       <div class="card">
@@ -100,28 +106,22 @@
       </div>
       <div class="card">
         <h3>Tax/Fees</h3>
-        <p>0.33% per transaction</p>
+        <p>0.33% per transaction (0.1% burn post 1M MC)</p>
       </div>
       <div class="card">
         <h3>Liquidity</h3>
-        <p>Locked on Raydium post-100K MC</p>
+        <p>Added to Raydium LP post-100K MC, locked for stability and growth</p>
       </div>
       <div class="card">
         <h3>Allocations</h3>
-        <p>Marketing (as needed)<br>Rewards<br>Reserve<br>Buybacks</p>
+        <p>Buybacks: 60%<br>Rewards: 15%<br>Marketing: 5%<br>Reserve: 20%</p>
       </div>
     </div>
     <h2>Burn Milestones – Supply Reduction</h2>
     <div class="burns">
-      <div class="burn">100K MC</div>
-      <div class="burn">250K MC</div>
-      <div class="burn">500K MC</div>
       <div class="burn">1M MC</div>
-      <div class="burn">2.5M MC</div>
       <div class="burn">5M MC</div>
-      <div class="burn">10M MC</div>
       <div class="burn">25M MC</div>
-      <div class="burn">50M MC</div>
       <div class="burn">100M MC</div>
       <div class="burn">250M MC</div>
       <div class="burn">500M MC</div>
@@ -149,7 +149,7 @@
         <p>Hold >1%</p>
       </div>
     </div>
-    <div class="tiers-grid">
+    <div class="tiers-grid-bottom">
       <div class="tier">
         <img src="images/platinum-badge.png" alt="Platinum Tier" style="width:220px; margin-bottom:20px;">
         <h3>Platinum</h3>
@@ -226,7 +226,7 @@
     <h2>Whitepaper – Full Transparency</h2>
     <p>Our whitepaper details bot mechanics, tokenomics, airdrops, fees, and long-term vision. No secrets – everything for community success.</p>
     <div style="display:flex; justify-content:center; align-items:center; flex-direction:column;">
-      <img src="images/whitepaper-cover.png" alt="Whitepaper Cover" style="width:60%; max-width:600px; border-radius:20px; box-shadow:0 0 40px rgba(138,43,226,0.5); margin:40px 0;">
+      <img src="images/whitepaper-cover.png" alt="Whitepaper Cover" style="width:50%; max-width:500px; border-radius:20px; box-shadow:0 0 40px rgba(138,43,226,0.5); margin:40px 0;">
       <a href="whitepaper.pdf" class="btn">Read Whitepaper</a>
     </div>
   </section>
@@ -235,16 +235,16 @@
     <h2>Join the Community – Conquer Together</h2>
     <p>We're not just holding – we're building the future. Buy dips, get rewarded, become part of $BTD power.</p>
     <div class="socials">
-      <a href="X_LINK"><img src="images/x-logo.png" alt="X" width="50"></a>
-      <a href="TG_LINK"><img src="images/telegram-logo.png" alt="Telegram" width="50"></a>
-      <a href="DEXSCREENER_LINK"><img src="images/dexscreener-logo.png" alt="DexScreener" width="50"></a>
-      <a href="SOLSCAN_LINK"><img src="images/solscan-logo.png" alt="Solscan" width="50"></a>
+      <a href="X_LINK"><img src="images/x-logo.png" alt="X" width="60"></a>
+      <a href="TG_LINK"><img src="images/telegram-logo.png" alt="Telegram" width="60"></a>
+      <a href="DEXSCREENER_LINK"><img src="images/dexscreener-logo.png" alt="DexScreener" width="60"></a>
+      <a href="SOLSCAN_LINK"><img src="images/solscan-logo.png" alt="Solscan" width="60"></a>
     </div>
     <a href="PUMP_FUN_LINK" class="btn">Buy $BTD Now</a>
   </section>
 
   <footer>
-    <p>© 2026 $BTD – All Rights Reserved</p>
+    <p>© 2026 $BTD – All Rights Reserved • (It took a billion dollars to develop this masterpiece)</p>
     <p>Not Financial Advice. Do Your Own Research. Buy The Dip.</p>
   </footer>
 </body>
